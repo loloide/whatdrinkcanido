@@ -1,0 +1,16 @@
+.env
+__pycache__/
+
+whatdrinkcanido/__pycache__/
+whatdrinkcanido/models/__pycache__/ad.cpython-38.pyc
+whatdrinkcanido/__pycache__/admin.cpython-38.pyc
+whatdrinkcanido/__pycache__/settings.cpython-38.pyc
+whatdrinkcanido/__pycache__/urls.cpython-38.pyc
+whatdrinkcanido/handlers/__pycache__/__init__.cpython-38.pyc
+whatdrinkcanido/handlers/__pycache__/category_handler.cpython-38.pyc
+whatdrinkcanido/views/__pycache__/__init__.cpython-38.pyc
+whatdrinkcanido/views/__pycache__/category_view.cpython-38.pyc
+whatdrinkcanido/static/
+bin/
+lib64/
+lib/
