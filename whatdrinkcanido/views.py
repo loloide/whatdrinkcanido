@@ -9,6 +9,7 @@ def drink_detail(request, pk):
 
     drink_data = {
         "name": drink.name,
+        "desc": drink.recipe,
         "cover_image": drink.cover_image.url if drink.cover_image else None,
         "id": drink.pk,
         "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
@@ -29,6 +30,7 @@ def search_by_name(request):
     for drink in drinks:
         drink_data = {
             "name": drink.name,
+            "desc": drink.recipe,
             "cover_image": drink.cover_image.url if drink.cover_image else None,
             "id": drink.pk,
             "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
@@ -63,6 +65,7 @@ def search_with_ingredients(request):
             if drink_ingredients == set(combo):  # Drink must have exactly these ingredients
                 drink_data = {
                     "name": drink.name,
+                    "desc": drink.recipe,
                     "cover_image": drink.cover_image.url if drink.cover_image else None,
                     "id": drink.pk,
                     "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
@@ -97,6 +100,7 @@ def search_with_ingredients_allow_missing(request):
     for drink in drinks:
         drink_data = {
             "name": drink.name,
+            "desc": drink.recipe,
             "cover_image": drink.cover_image.url if drink.cover_image else None,
             "id": drink.pk,
             "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
@@ -106,3 +110,15 @@ def search_with_ingredients_allow_missing(request):
         drinks_data.append(drink_data)
 
     return JsonResponse(drinks_data, safe=False)
+
+def get_ingredients(request):
+    ingredients = Ingredient.objects.all().order_by('name')
+
+    ingredients_data = []
+    for ingredient in ingredients:
+        ingredient_data = {
+            "name": ingredient.name
+        }
+
+        ingredients_data.append(ingredient_data)
+    return JsonResponse(ingredients_data, safe=False)

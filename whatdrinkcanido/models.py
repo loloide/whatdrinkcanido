@@ -8,6 +8,7 @@ class Ingredient(models.Model):
 
 class Drink(models.Model):
     name = models.CharField(max_length=30)
+    recipe = models.TextField()
     cover_image = models.ImageField(upload_to='drink_pictures/', blank=True, null=True)
     ingredients = models.ManyToManyField(Ingredient, related_name='drinks')
 
