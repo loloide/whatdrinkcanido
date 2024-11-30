@@ -15,3 +15,4 @@ bin/
 lib64/
 lib/
 /static
+db.sqlite3

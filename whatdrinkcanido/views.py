@@ -10,7 +10,7 @@ def drink_detail(request, pk):
     drink_data = {
         "name": drink.name,
         "desc": drink.recipe,
-        "image": drink.image.url[16:] if drink.image else None,
+        "image": drink.image.url if drink.image else None,
         "id": drink.pk,
         "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
         "created_at": drink.created_at.isoformat(),
@@ -31,7 +31,7 @@ def search_by_name(request):
         drink_data = {
             "name": drink.name,
             "desc": drink.recipe,
-            "image": drink.image.url[16:] if drink.image else None,
+            "image": drink.image.url if drink.image else None,
             "id": drink.pk,
             "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
             "created_at": drink.created_at.isoformat(),
@@ -61,7 +61,7 @@ def search_with_ingredients(request):
             drink_data = {
                 "name": drink.name,
                 "desc": drink.recipe,
-                "image": drink.image.url[16:] if drink.image else None,
+                "image": drink.image.url if drink.image else None,
                 "id": drink.pk,
                 "ingredients": drink_ingredient_names,
                 "created_at": drink.created_at.isoformat(),
@@ -88,7 +88,7 @@ def search_with_ingredients_allow_missing(request):
         drink_data = {
             "name": drink.name,
             "desc": drink.recipe,
-            "image": drink.image.url[16:] if drink.image else None,
+            "image": drink.image.url if drink.image else None,
             "id": drink.pk,
             "ingredients": [ingredient.name for ingredient in drink.ingredients.all()],
             "created_at": drink.created_at.isoformat(),
